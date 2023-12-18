@@ -1,0 +1,28 @@
+server:
+  port: 8082
+spring:
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "prod"
+  data:
+    mongodb:
+      database: ukraine-help-dev
+      uri: mongodb+srv://mongodbuser:mongodbpas@cluster0.kxxgcxu.mongodb.net/test
+  mongodb:
+    embedded:
+      version: 3.5.5
+build:
+  version: 3.0.0
+
+accounts:
+  message: "Welcome to accounts related local APIs "
+  contactDetails:
+    name: "John Doe - Developer"
+    email: "john@eazy.com"
+  onCallSupport:
+    - (555) 555-1234
+    - (555) 523-1345
