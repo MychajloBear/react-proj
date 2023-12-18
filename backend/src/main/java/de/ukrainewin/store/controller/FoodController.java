@@ -4,14 +4,23 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import de.ukrainewin.store.model.Food;
-import de.ukrainewin.store.model.FoodDTO;
+import de.ukrainewin.store.model.FoodDto;
+import de.ukrainewin.store.model.ErrorResponseDto;
 import de.ukrainewin.store.service.FoodService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
-@RequestMapping("api")
+@RequestMapping(path="/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class FoodController {
 
 	@Autowired
@@ -31,7 +40,7 @@ public class FoodController {
 	}
 
 	@PostMapping("food")
-	public Food addFood(@RequestBody FoodDTO foodDTO) {
+	public Food addFood(@RequestBody FoodDto foodDTO) {
 		return foodService.addFood(foodDTO);
 	}
 
