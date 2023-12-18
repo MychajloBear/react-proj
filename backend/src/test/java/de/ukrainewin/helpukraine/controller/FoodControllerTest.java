@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @TestPropertySource("/multipledb/multidb.properties")
 
-class OrderControllerTest {
+class FoodControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
