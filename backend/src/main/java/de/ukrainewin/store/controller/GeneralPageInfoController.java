@@ -3,6 +3,7 @@ import java.util.Optional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
 
 import de.ukrainewin.store.service.LocalizationService;
 
@@ -15,9 +16,16 @@ import org.springframework.beans.factory.annotation.Autowired;
     @Autowired
     private LocalizationService localizationService;
 
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Value("${localization.header}")
+    private String localizedHeader;
+
 	@GetMapping("api/header")
 	public String getHeader(@RequestParam Optional<String> search) {
 		return localizationService.getLocalizedString("header");
+            //localizedHeader;
 	}
 }
 
