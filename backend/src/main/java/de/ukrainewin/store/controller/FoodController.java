@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import de.ukrainewin.store.model.Food;
-import de.ukrainewin.store.model.FoodDTO;
+import de.ukrainewin.store.model.FoodDto;
 import de.ukrainewin.store.service.FoodService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -38,8 +38,8 @@ public class FoodController {
 	}
 
 	@PostMapping()
-	public Food addFood(@RequestBody FoodDTO foodDTO) {
-		return foodService.addFood(foodDTO);
+	public Food addFood(@RequestBody FoodDto foodDto) {
+		return foodService.addFood(foodDto);
 	}
 
 	@DeleteMapping("{id}")
