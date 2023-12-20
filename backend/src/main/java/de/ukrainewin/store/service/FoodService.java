@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.ukrainewin.store.model.Food;
-import de.ukrainewin.store.model.FoodDTO;
+import de.ukrainewin.store.model.FoodDto;
 import de.ukrainewin.store.repo.FoodRepo;
 
 @Service
@@ -34,7 +34,7 @@ public class FoodService {
 		throw new IllegalArgumentException("Food with Id " + id + " not found!");
 	}
 
-	public Food addFood(FoodDTO food) {
+	public Food addFood(FoodDto food) {
 		Food newFood = new Food(idService.generateId(), food.name());
 		return foodRepo.insert(newFood);
 	}
