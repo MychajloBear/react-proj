@@ -8,10 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import de.ukrainewin.store.model.Food;
-import de.ukrainewin.store.model.FoodDto;
-import de.ukrainewin.store.model.ErrorResponseDto;
+import de.ukrainewin.store.model.FoodDTO;
 import de.ukrainewin.store.service.FoodService;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -26,7 +24,7 @@ public class FoodController {
 	@Autowired
 	FoodService foodService;
 
-	@GetMapping("food")
+	@GetMapping
 	public List<Food> listFoods(@RequestParam Optional<String> search) {
 		if (search.isPresent()) {
 			return foodService.search(search.get()); 
@@ -34,22 +32,22 @@ public class FoodController {
 		return foodService.list();
 	}
 
-	@GetMapping("food/{id}")
+	@GetMapping("{id}")
 	public Food getFood(@PathVariable String id) {
 		return foodService.findById(id);
 	}
 
-	@PostMapping("food")
-	public Food addFood(@RequestBody FoodDto foodDTO) {
+	@PostMapping()
+	public Food addFood(@RequestBody FoodDTO foodDTO) {
 		return foodService.addFood(foodDTO);
 	}
 
-	@DeleteMapping("food/{id}")
+	@DeleteMapping("{id}")
 	public void deleteFood(@PathVariable String id) {
 		foodService.delete(id);
 	}
 	
-	@PutMapping("food/{id}")
+	@PutMapping("{id}")
 	public void putFood(@PathVariable String id) {
 		foodService.delete(id);
 	}

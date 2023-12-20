@@ -1,6 +1,6 @@
 package de.ukrainewin.store.model;
 
-	public record FoodDto(
+	public record FoodDTO(
 	        String id,
 	        String name
 
